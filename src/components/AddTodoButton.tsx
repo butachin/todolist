@@ -1,17 +1,17 @@
 import * as React from 'react';
 
-export interface AddTodoButtonProps{
+export interface IAddTodoButtonProps{
     onSubmit: (s: string) => void;
 }
 
-class AddButton extends React.Component<AddTodoButtonProps, {input:string}>{
-    constructor(props:AddTodoButtonProps){
+class AddButton extends React.Component<IAddTodoButtonProps, {input:string}>{
+    constructor(props:IAddTodoButtonProps){
         super(props)
         this.state= {
             input : ""
         }
     }
-    onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void =>{
+    public onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void =>{
         e.preventDefault();
         if(!this.state.input.trim()){
             return
@@ -22,13 +22,13 @@ class AddButton extends React.Component<AddTodoButtonProps, {input:string}>{
             input:""
         })
     }
-    onInputChange = (e: React.FormEvent<HTMLInputElement>):void =>{
+    public onInputChange = (e: React.FormEvent<HTMLInputElement>):void =>{
         this.setState({
             input:e.currentTarget.value
         })
     }
 
-    render(){
+    public render(){
         return(
             <div>
                 <form

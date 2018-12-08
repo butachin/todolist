@@ -1,9 +1,7 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { Dispatch } from "react";
+import { connect, Dispatch } from "react-redux";
 import { addTodo, TodoAction } from "../actions";
-import AddButton, { AddTodoButtonProps } from "../components/AddTodoButton";
-import { Todo, Todos } from "../states/TodoState";
+import AddButton, { IAddTodoButtonProps } from "../components/AddTodoButton";
+import { Todos } from "../states/TodoState";
 
 function mapStateToProps(state: Todos): {} {
   return {};
@@ -11,7 +9,7 @@ function mapStateToProps(state: Todos): {} {
 
 function mapDispatchToProps(
   dispatch: Dispatch<TodoAction>
-): AddTodoButtonProps {
+): IAddTodoButtonProps {
   return {
     onSubmit: (s: string) => {
       dispatch(addTodo(s));
@@ -19,7 +17,7 @@ function mapDispatchToProps(
   };
 }
 
-export default connect<{}, AddTodoButtonProps, {}>(
+export default connect<{}, IAddTodoButtonProps, {}>(
   mapStateToProps,
   mapDispatchToProps
 )(AddButton);

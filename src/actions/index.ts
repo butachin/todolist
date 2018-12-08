@@ -5,30 +5,30 @@ export enum TodoActionType {
   TOGGLE_TODO = "TOGGLE_TODO"
 }
 
-export interface AddTodoAction {
+export interface IAddTodoAction {
   type: TodoActionType.ADD_TODO;
   id: number;
   text: string;
 }
 
-export interface ToggleTodoAction {
+export interface IToggleTodoAction {
   type: TodoActionType.TOGGLE_TODO;
   id: number;
 }
 
-export type TodoAction = AddTodoAction | ToggleTodoAction;
+export type TodoAction = IAddTodoAction | IToggleTodoAction;
 
-export function addTodo(text: string): AddTodoAction {
+export function addTodo(text: string): IAddTodoAction {
   return {
-    type: TodoActionType.ADD_TODO,
     id: nextTodoId++,
-    text: text
+    text,
+    type: TodoActionType.ADD_TODO,
   };
 }
 
-export function toggleTodo(id: number): ToggleTodoAction {
+export function toggleTodo(id: number): IToggleTodoAction {
   return {
+    id,
     type: TodoActionType.TOGGLE_TODO,
-    id: id
   };
 }
