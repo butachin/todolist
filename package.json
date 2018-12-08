@@ -23,7 +23,7 @@
     "@types/node": "^10.12.12",
     "@types/react": "^16.7.13",
     "@types/react-dom": "^16.0.11",
-    "@types/react-redux": "^6.0.10",
+    "@types/react-redux": "^6.0.11",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "typescript": "^3.2.1"
